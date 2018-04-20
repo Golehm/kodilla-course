@@ -46,7 +46,6 @@ public class CollectionTestSuite {
         fullNumbers.add(6);
         //When
         resultNumbers = oddNumbersExterminatorFull.exterminate(fullNumbers);
-
         //Then
         System.out.println("Testing " + resultNumbers.get(0));
         System.out.println("Testing " + resultNumbers.get(1));
