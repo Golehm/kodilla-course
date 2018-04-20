@@ -1,5 +1,7 @@
 package com.kodilla.testing.forum;
 
+import java.util.Objects;
+
 public class ForumPost {
     String postBody;
     String author;
@@ -21,17 +23,13 @@ public class ForumPost {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         ForumPost forumPost = (ForumPost) o;
-
-        if (!postBody.equals(forumPost.postBody)) return false;
-        return author.equals(forumPost.author);
+        return Objects.equals(postBody, forumPost.postBody) &&
+                Objects.equals(author, forumPost.author);
     }
 
     @Override
     public int hashCode() {
-        int result = postBody.hashCode();
-        result = 31 * result + author.hashCode();
-        return result;
+        return Objects.hash(postBody, author);
     }
 }
