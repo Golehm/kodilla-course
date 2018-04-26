@@ -31,22 +31,29 @@ public class AdvStatisticsTestSuite {
         Assert.assertEquals(posts, postsStat);
         Assert.assertEquals(comments, commentsStat);
         advStat.showStatistics();
+        System.out.println();
     }
     @Test
-    public void testCalculateAdvStatisticsPosts() {
-        tester(4, 5, 12);
-        tester(4, 0, 12);//zero posts
-        tester(4, 1000, 12);//1000 posts
+    public void testCalculateAdvStatisticsPostsExists() {
+        tester(4, 15, 12);//comments < posts
+        tester(24, 1000, 12);
+        tester(3, 3, 7);//comments > posts
     }
     @Test
-    public void  testCalculateAdvStatisticsComments() {
-        tester(4, 5, 0);//zero comments
-        tester(4, 6, 3);//comments < posts
-        tester(4, 3, 7);//comments > posts
+    public void testCalculateAdvStatisticsNoPosts(){
+        tester(12, 0, 0);//
+        tester(7, 0, 0);
+    }
+    @Test
+    public void  testCalculateAdvStatisticsNoComments() {
+        tester(5, 5, 0);
+        tester(1, 0, 0);
+
     }
     @Test
     public void testCalculateAdvStatisticsUsers(){
-        tester(0,25,142);//0 users
-        tester(100,50,126);//100 users
+        tester(0,25,142);
+        tester(100,50,126);
+
     }
 }
