@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-04-26T11:01:14" hostname="GreG-Komputer" time="0.087">
+  <properties/>
+  <testcase name="testCalculateAdvStatisticsNoPosts" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.083"/>
+  <testcase name="testCalculateAdvStatisticsNoComments" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.001"/>
+  <testcase name="testCalculateAdvStatisticsPostsExists" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.002"/>
+  <testcase name="testCalculateAdvStatisticsUsers" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.001"/>
+  <system-out><![CDATA[ Number of users = 12
+ Number of posts = 0
+ Number of comments = 0
+ Avg of user posts = 0.0
+ Avg of users comments = 0.0
+ Avg comments per post = NaN
+
+ Number of users = 7
+ Number of posts = 0
+ Number of comments = 0
+ Avg of user posts = 0.0
+ Avg of users comments = 0.0
+ Avg comments per post = NaN
+
+ Number of users = 5
+ Number of posts = 5
+ Number of comments = 0
+ Avg of user posts = 1.0
+ Avg of users comments = 0.0
+ Avg comments per post = 0.0
+
+ Number of users = 1
+ Number of posts = 0
+ Number of comments = 0
+ Avg of user posts = 0.0
+ Avg of users comments = 0.0
+ Avg comments per post = NaN
+
+ Number of users = 4
+ Number of posts = 15
+ Number of comments = 12
+ Avg of user posts = 3.75
+ Avg of users comments = 3.0
+ Avg comments per post = 0.8
+
+ Number of users = 24
+ Number of posts = 1000
+ Number of comments = 12
+ Avg of user posts = 41.666668
+ Avg of users comments = 0.5
+ Avg comments per post = 0.012
+
+ Number of users = 3
+ Number of posts = 3
+ Number of comments = 7
+ Avg of user posts = 1.0
+ Avg of users comments = 2.3333333
+ Avg comments per post = 2.3333333
+
+ Number of users = 0
+ Number of posts = 25
+ Number of comments = 142
+ Avg of user posts = Infinity
+ Avg of users comments = Infinity
+ Avg comments per post = 5.68
+
+ Number of users = 100
+ Number of posts = 50
+ Number of comments = 126
+ Avg of user posts = 0.5
+ Avg of users comments = 1.26
+ Avg comments per post = 2.52
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
