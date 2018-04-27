@@ -113,14 +113,10 @@ public class AdvStatisticsTestSuite {
     public void testCalculateAdvStatisticsZeroUsers() {
         //Given
         List<String> emptyUsersList = new ArrayList<String>();
-        //int numberOfUsers = 0;
-        //when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.usersNames()).thenReturn(emptyUsersList);
         //When
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
-        //int postsCount = statisticsCalculator.getPostsCount();
         int usersCount = statisticsCalculator.getUsersCount();
-        //Double avgPosts = statisticsCalculator.getAveragePostsPerUser();
         //Then
         Assert.assertEquals(0, usersCount);
         statisticsCalculator.showStatistics();
