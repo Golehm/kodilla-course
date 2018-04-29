@@ -4,12 +4,11 @@ import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import static java.time.temporal.ChronoUnit.DAYS;
 
 public class StreamMain {
     public static void main(String[] args) {
@@ -30,9 +29,8 @@ public class StreamMain {
 
         Map<Integer, ForumUser> theResultMapOfUsers = forum.getUserList().stream()
                 .filter(u -> u.getSex() =='M')
-                .filter(u -> DAYS.between(u.getDateOfBirth(),LocalDate.now())>20*365.25)
+                .filter(u -> Period.between(u.getDateOfBirth(), LocalDate.now()).getYears() >= 20)
                 .filter(u -> u.getNumberOfPosts() > 0)
-                //.forEach(u -> System.out.println(u.getUserName()))
                 .collect(Collectors.toMap(ForumUser::getUniqeID, u -> u));
 
         System.out.println("# elements: " + theResultMapOfUsers.size());
