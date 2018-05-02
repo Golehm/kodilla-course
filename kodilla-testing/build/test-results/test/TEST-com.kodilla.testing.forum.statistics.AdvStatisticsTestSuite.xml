@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-05-02T17:45:18" hostname="GreG-Komputer" time="0.101">
+  <properties/>
+  <testcase name="testCalculateAdvStatisticsCommentsNotExist" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.097"/>
+  <testcase name="testCalculateAdvStatisticsLessCommentsThenPosts" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.001"/>
+  <testcase name="testCalculateAdvStatisticsPostsExist" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.001"/>
+  <testcase name="testCalculateAdvStatisticsSomeUsers" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.0"/>
+  <testcase name="testCalculateAdvStatisticsPostsNotExist" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.0"/>
+  <testcase name="testCalculateAdvStatisticsZeroUsers" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.001"/>
+  <testcase name="testCalculateAdvStatisticsMoreCommentsThenPosts" classname="com.kodilla.testing.forum.statistics.AdvStatisticsTestSuite" time="0.0"/>
+  <system-out><![CDATA[ Number of users = 4
+ Number of posts = 0
+ Number of comments = 0
+ Avg of user posts = 0.0
+ Avg of users comments = 0.0
+ Avg comments per post = NaN
+
+ Number of users = 0
+ Number of posts = 6
+ Number of comments = 4
+ Avg of user posts = Infinity
+ Avg of users comments = Infinity
+ Avg comments per post = 0.6666666666666666
+
+ Number of users = 4
+ Number of posts = 1000
+ Number of comments = 0
+ Avg of user posts = 250.0
+ Avg of users comments = 0.0
+ Avg comments per post = 0.0
+
+ Number of users = 100
+ Number of posts = 0
+ Number of comments = 0
+ Avg of user posts = 0.0
+ Avg of users comments = 0.0
+ Avg comments per post = NaN
+
+ Number of users = 4
+ Number of posts = 0
+ Number of comments = 0
+ Avg of user posts = 0.0
+ Avg of users comments = 0.0
+ Avg comments per post = NaN
+
+ Number of users = 0
+ Number of posts = 0
+ Number of comments = 0
+ Avg of user posts = NaN
+ Avg of users comments = NaN
+ Avg comments per post = NaN
+
+ Number of users = 0
+ Number of posts = 3
+ Number of comments = 12
+ Avg of user posts = Infinity
+ Avg of users comments = Infinity
+ Avg comments per post = 4.0
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

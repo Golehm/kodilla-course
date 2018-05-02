@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.stream.world.WorldTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-05-02T17:45:17" hostname="GreG-Komputer" time="0.001">
+  <properties/>
+  <testcase name="testGetPeopleQuantity" classname="com.kodilla.stream.world.WorldTestSuite" time="0.001"/>
+  <system-out><![CDATA[Whole world has 5087654321 peoples
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
