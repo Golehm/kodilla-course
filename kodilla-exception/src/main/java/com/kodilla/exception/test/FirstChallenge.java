@@ -21,10 +21,12 @@ public class FirstChallenge {
             result = firstChallenge.divide(3, 0);
         }
         catch(ArithmeticException e){
-            System.out.println("\n" + "catched Exception is : " + e);
+            System.out.println("Something went wrong");
+            e.printStackTrace();
+            System.out.println("Catched Exception name is : " + e.toString());
         }
         finally {
-            System.out.println("\n" + "Pamietaj cholero, nie dziel przez zero." + "\n");
+            System.out.println("Finnaly: pamietaj cholero, nie dziel przez zero.");
         }
             System.out.println(result);
     }
