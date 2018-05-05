@@ -2,10 +2,33 @@ package com.kodilla.exception.test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class FindFlightMain {
+    Map<String, Boolean> airportsMap;
+    public FindFlightMain(Map<String, Boolean> airportsMap) {
+        this.airportsMap = airportsMap;
+    }
+    public Map<String, Boolean> findFlight(Flight flight) throws RouteNotFoundException{
+        Map<String, Boolean> searchedDeparture = airportsMap.entrySet().stream()
+                .filter(map -> flight.getDepartureAirport().equals(map.getKey()))
+                .collect(Collectors.toMap(k -> k.getKey(), v -> v.getValue()));
+        Map<String, Boolean> searchedArrival = airportsMap.entrySet().stream()
+                .filter(map -> flight.getArrivalAirport().equals(map.getKey()))
+                .collect(Collectors.toMap(k -> k.getKey(), v -> v.getValue()));
+        if(searchedDeparture.containsValue(Boolean.TRUE) && searchedArrival.containsValue(Boolean.TRUE)){
+            System.out.println("Departure from " + searchedDeparture.keySet()
+                    + " Arrival into " + searchedArrival.keySet());
+        }
+        else{
+            throw new RouteNotFoundException();
+        }
+        Map<String, Boolean> result = new HashMap<>();
+        result.putAll(searchedDeparture);
+        result.putAll(searchedArrival);
+        return  result;
+    }
     public static void main(String args[]){
-
         Map<String, Boolean> testAirports = new HashMap<String, Boolean>();
 
         testAirports.put("Berlin", true);
@@ -19,45 +42,56 @@ public class FindFlightMain {
         testAirports.put("Tehran", true);
         testAirports.put("Minsk", true);
 
-        FindFlight myTravel = new FindFlight(testAirports);
-
+        FindFlightMain findFlightMain = new FindFlightMain(testAirports);
         Flight myFlight = new Flight("Warsaw","Minsk");
         try{
-        myTravel.findFlight(myFlight);
+            findFlightMain.findFlight(myFlight);
         }
         catch(RouteNotFoundException r){
             System.out.println(r.getMessage());
+        }
+        finally {
+            System.out.println("Search ended");
         }
         Flight yourFlight = new Flight("York", "Oslo");
         try{
-            myTravel.findFlight(yourFlight);
+            findFlightMain.findFlight(yourFlight);
         }
         catch(RouteNotFoundException r){
             System.out.println(r.getMessage());
+        }
+        finally {
+            System.out.println("Search ended");
         }
         Flight hisFlight = new Flight("Paris","Tehran");
         try{
-            myTravel.findFlight(hisFlight);
+            findFlightMain.findFlight(hisFlight);
         }
         catch(RouteNotFoundException r){
-            r.printStackTrace();
             System.out.println(r.getMessage());
+        }
+        finally {
+            System.out.println("Search ended");
         }
         Flight herFlight = new Flight("Barcelona", "Berlin");
         try{
-            myTravel.findFlight(herFlight);
+            findFlightMain.findFlight(herFlight);
         }
         catch(RouteNotFoundException r){
-            r.printStackTrace();
             System.out.println(r.getMessage());
+        }
+        finally {
+            System.out.println("Search ended");
         }
         Flight theirFlight = new Flight("New York", "Moscow");
         try{
-            myTravel.findFlight(theirFlight);
+            findFlightMain.findFlight(theirFlight);
         }
         catch(RouteNotFoundException r){
-            r.printStackTrace();
             System.out.println(r.getMessage());
+        }
+        finally {
+            System.out.println("Search ended");
         }
     }
 }
