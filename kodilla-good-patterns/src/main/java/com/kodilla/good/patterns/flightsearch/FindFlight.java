@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class InitializeAirports {
+public class FindFlight {
     private static final String WROCLAW = "Wroclaw";
     private static final String POZNAN = "Poznan";
     private static final String GDANSK = "Gdansk";
@@ -35,5 +35,33 @@ public class InitializeAirports {
         airports.add(new Airport(RZESZOW, rzeszow));
         airports.add(new Airport(WARSZAWA, warszawa));
         return airports;
+    }
+    public void flightsFromCity(String city, List<Airport> airports) {
+        System.out.print("Flights to " + city + ": ");
+        airports.stream().filter(a -> a.getName().equals(city))
+                .map(a -> a.getDestinations()).forEach(System.out::println);
+    }
+    public void flightsToCity(String city, List<Airport> airports) {
+        System.out.print("Flights to " + city + ": ");
+        for (Airport airport: airports){
+            if (airport.getDestinations().stream().anyMatch(c -> c.contains(city))){
+                System.out.print(airport.getName() + ", ");
+            }
+        }
+        System.out.println();
+    }
+    public void flightsTroughCity(String from, String to, List<Airport> airports) {
+        List<String> troughListFrom = null;
+        List<String> troughListTo = null;
+        for (Airport airport: airports){
+            if(airport.getName().equals(from)){
+                troughListFrom = airport.getDestinations();
+            }
+            if(airport.getName().equals(to)){
+                troughListTo = airport.getDestinations();
+            }
+        }
+        System.out.println("Flights from " + from +  " trough Some City to " + to + ": ");
+        troughListFrom.stream().filter(troughListTo::contains).forEach(System.out::println);
     }
 }
