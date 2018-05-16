@@ -5,7 +5,7 @@ public final class Logger {
     private String lastLog = "";
 
    private Logger(){
-       System.out.println("It's me Logger constructor!");
+       System.out.println("It's me... Logger constructor!");
    }
 
     public static Logger getInstance() {
