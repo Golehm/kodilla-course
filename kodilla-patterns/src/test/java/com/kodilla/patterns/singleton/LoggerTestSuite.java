@@ -1,5 +1,6 @@
 package com.kodilla.patterns.singleton;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class LoggerTestSuite {
@@ -14,5 +15,7 @@ public class LoggerTestSuite {
         //Then
         System.out.println("Test logsA: " + logA.getLastLog());
         System.out.println("Test logsB: " + logB.getLastLog());
+        Assert.assertEquals("Nyterk", logA.getLastLog());
+        Assert.assertEquals("Nyterk", logB.getLastLog());
     }
 }
