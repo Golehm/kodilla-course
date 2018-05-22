@@ -1,9 +1,9 @@
 package com.kodilla.patterns.factory.tasks;
 
 public class DrivingTask implements Task {
-    String taskName = "Driving";
-    String where;
-    String using;
+    private String taskName = "Driving";
+    private String where;
+    private String using;
     DrivingTask(String where, String using) {
         this.where = where;
         this.using = using;
