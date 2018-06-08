@@ -13,6 +13,7 @@ public class Item {
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
+
     public Item() {
     }
 
