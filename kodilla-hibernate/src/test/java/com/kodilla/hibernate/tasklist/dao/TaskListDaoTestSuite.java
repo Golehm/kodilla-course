@@ -22,6 +22,7 @@ public class TaskListDaoTestSuite {
     @Autowired
     private TaskDao taskDao;
     private static final String LISTNAME = "ToDo List";
+    //private static final String LISTNAME2 = "Test List";
     private static final String DESCRIPTION = "Task number 13.2";
     @Test
     public void testFindByListName(){
@@ -36,6 +37,47 @@ public class TaskListDaoTestSuite {
         String listName = taskList.getListName();
         List<TaskList> findByName = taskListDao.findByListName(listName);
         Assert.assertEquals(listName, findByName.get(0).getListName());
+
+        //CleanUp
+        taskListDao.delete(id);
+    }
+    @Test
+    public void testFindByListNameTwoExactlySameNames(){
+        //Given
+        TaskList taskList1 = new TaskList(LISTNAME,DESCRIPTION);
+        TaskList taskList2 = new TaskList(LISTNAME, "Test descripton");
+        //When
+        taskListDao.save(taskList1);
+        taskListDao.save(taskList2);
+
+        //Then
+        int id1 = taskList1.getId();
+        int id2 = taskList2.getId();
+        String listName1 = taskList1.getListName();
+        String listName2 = taskList2.getListName();
+        List<TaskList> findByName1 = taskListDao.findByListName(listName1);
+        List<TaskList> findByName2 = taskListDao.findByListName(listName2);
+        Assert.assertEquals(listName1, findByName1.get(0).getListName());
+        Assert.assertEquals(listName2, findByName1.get(1).getListName());
+        Assert.assertEquals(listName2, findByName1.get(0).getListName());
+        Assert.assertEquals(listName1, findByName2.get(1).getListName());
+        //CleanUp
+        taskListDao.delete(id1);
+        taskListDao.delete(id2);
+    }
+    @Test
+    public void testFindByListNameFindsNothing(){
+        //Given
+        TaskList taskList = new TaskList(LISTNAME,DESCRIPTION);
+
+        //When
+        taskListDao.save(taskList);
+
+        //Then
+        int id = taskList.getId();
+        String listName = "other list";
+        List<TaskList> findByName = taskListDao.findByListName(listName);
+        Assert.assertEquals(true, findByName.isEmpty());
 
         //CleanUp
         taskListDao.delete(id);
