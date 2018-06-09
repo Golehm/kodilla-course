@@ -13,24 +13,32 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.core.Is.is;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
-
+    private static final String MILK = "Milk";
+    private static final String BOOZE = "Booze";
+    private static final String MAYO = "Mayo";
+    private static final String CHOCOLATE = "Chocolate";
+    private static final String BREAD = "Bread";
     @Test
     public void testInvoiceDaoSave(){
-        //GIVEN
+        //Given
+
+
         Invoice invoice = new Invoice();
         invoice.setNumber("One");
         List<Item> items = new ArrayList<>();
 
-        Product product1 = new Product("Milk");
-        Product product2 = new Product("Booze");
-        Product product3 = new Product("Mayo");
-        Product product4 = new Product("Chocolate");
-        Product product5 = new Product("Bread");
+        Product product1 = new Product(MILK);
+        Product product2 = new Product(BOOZE);
+        Product product3 = new Product(MAYO);
+        Product product4 = new Product(CHOCOLATE);
+        Product product5 = new Product(BREAD);
 
         Item item1 = new Item(product1, invoice, new BigDecimal(1.5),3, new BigDecimal(1.2));
         Item item2 = new Item(product2, invoice, new BigDecimal(12),8, new BigDecimal(10));
@@ -53,12 +61,23 @@ public class InvoiceDaoTestSuite {
 
         invoice.setItems(items);
 
-        //WHEN
+        //When
         invoiceDao.save(invoice);
         int id = invoice.getId();
-
-        //THEN
-        Assert.assertNotEquals(0, id);
+        Invoice testInvoice = invoiceDao.findOne(id);
+        List<String> productsList = new ArrayList<>();
+        productsList.add(testInvoice.getItems().get(0).getProduct().getName());
+        productsList.add(testInvoice.getItems().get(1).getProduct().getName());
+        productsList.add(testInvoice.getItems().get(2).getProduct().getName());
+        productsList.add(testInvoice.getItems().get(3).getProduct().getName());
+        productsList.add(testInvoice.getItems().get(4).getProduct().getName());
+        //Then
+        Assert.assertEquals("One", testInvoice.getNumber());
+        Assert.assertEquals(true, productsList.contains(MILK));
+        Assert.assertEquals(true, productsList.contains(BOOZE));
+        Assert.assertEquals(true, productsList.contains(MAYO));
+        Assert.assertEquals(true, productsList.contains(CHOCOLATE));
+        Assert.assertEquals(true, productsList.contains(BREAD));
         //CleanUp
         invoiceDao.delete(id);
     }

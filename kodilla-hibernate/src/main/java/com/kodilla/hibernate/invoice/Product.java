@@ -28,7 +28,7 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
-    }//private ?
+    }
 
     @NotNull
     @Column(name = "NAME")
@@ -38,7 +38,7 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
-    }//private ?
+    }
 
     @OneToMany(
             targetEntity = Item.class,
