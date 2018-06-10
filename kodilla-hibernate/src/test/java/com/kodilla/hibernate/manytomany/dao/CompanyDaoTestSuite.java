@@ -9,11 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
-    CompanyDao companyDao;
+    private CompanyDao companyDao;
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany(){
@@ -52,12 +56,70 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        //try {
-        //    companyDao.delete(softwareMachineId);
-        //    companyDao.delete(dataMaestersId);
-        //    companyDao.delete(greyMatterId);
-        //} catch (Exception e) {
-        //    //do nothing
-        //}
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        }
+        catch (Exception e){
+        }
+    }
+    @Test
+    public void testFindEmployeeByLastname(){
+        //Given
+        Employee waldemarJaszczuk = new Employee("Waldemar", "Jaszczuk");
+        Employee antoniZubek = new Employee("Antoni", "Zubek");
+
+        Company milicjaObywatelska = new Company("Milicja Obywatelska");
+
+        milicjaObywatelska.getEmployees().add(waldemarJaszczuk);
+        milicjaObywatelska.getEmployees().add(antoniZubek);
+
+        waldemarJaszczuk.getCompanies().add(milicjaObywatelska);
+        antoniZubek.getCompanies().add(milicjaObywatelska);
+
+        //When
+        employeeDao.save(waldemarJaszczuk);
+        employeeDao.save(antoniZubek);
+        List<Employee> searchedEmployee = employeeDao.findEmployeeByLastname("Jaszczuk");
+
+        //Then
+        Assert.assertEquals("Jaszczuk", searchedEmployee.get(0).getLastname());
+
+        //CleanUp
+        try {
+            employeeDao.delete(waldemarJaszczuk);
+            employeeDao.delete(antoniZubek);
+        }
+        catch (Exception e){
+        }
+    }
+    @Test
+    public void findByFirstThreeLetters(){
+        //Given
+        Employee waldemarJaszczuk = new Employee("Waldemar", "Jaszczuk");
+        Employee antoniZubek = new Employee("Antoni", "Zubek");
+
+        Company milicjaObywatelska = new Company("Milicja Obywatelska");
+
+        milicjaObywatelska.getEmployees().add(waldemarJaszczuk);
+        milicjaObywatelska.getEmployees().add(antoniZubek);
+
+        waldemarJaszczuk.getCompanies().add(milicjaObywatelska);
+        antoniZubek.getCompanies().add(milicjaObywatelska);
+
+        //When
+        companyDao.save(milicjaObywatelska);
+        List<Company> searchedCompany = companyDao.findByFirstThreeLetters("Mil");
+
+        //Then
+        Assert.assertEquals("Milicja Obywatelska", searchedCompany.get(0).getName());
+
+        //CleanUp
+        try {
+            companyDao.delete(milicjaObywatelska);
+        }
+        catch (Exception e){
+        }
     }
 }
