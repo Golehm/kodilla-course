@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedQuery(
-        name = "Employee.findEmployeeByLastname",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
+        name = "Employee.findByFragmentOfTheName",
+        query = "From Employee WHERE lastname LIKE CONCAT('%',:STR,'%')"
 )
 @Entity
 @Table(name = "EMPLOYEES")
