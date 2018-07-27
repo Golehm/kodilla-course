@@ -10,17 +10,17 @@ import java.util.Map;
 public class MedianAdaptee implements BookStatistics {
     private Statistics statistics;
 
-    public MedianAdaptee() {
-        super();
+    public MedianAdaptee(Statistics statistics) {
+        this.statistics = statistics;
     }
 
     @Override
     public int averagePublicationYear(Map<BookSignature, Book> books) {
-        return 0;
+        return statistics.averagePublicationYear(books);
     }
 
     @Override
     public int medianPublicationYear(Map<BookSignature, Book> books) {
-        return 0;
+        return statistics.medianPublicationYear(books);
     }
 }
