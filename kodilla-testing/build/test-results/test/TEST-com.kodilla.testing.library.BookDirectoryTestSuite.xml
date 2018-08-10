@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.testing.library.BookDirectoryTestSuite" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-05-02T17:45:18" hostname="GreG-Komputer" time="0.016">
+<testsuite name="com.kodilla.testing.library.BookDirectoryTestSuite" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-08-10T11:32:11" hostname="GreG-Komputer" time="0.028">
   <properties/>
-  <testcase name="testListBooksWithConditionFragmentShorterThan3" classname="com.kodilla.testing.library.BookDirectoryTestSuite" time="0.013"/>
-  <testcase name="testListBooksWithConditionMoreThan20" classname="com.kodilla.testing.library.BookDirectoryTestSuite" time="0.002"/>
-  <testcase name="testListBooksWithConditionsReturnList" classname="com.kodilla.testing.library.BookDirectoryTestSuite" time="0.0"/>
+  <testcase name="testListBooksWithConditionFragmentShorterThan3" classname="com.kodilla.testing.library.BookDirectoryTestSuite" time="0.023"/>
+  <testcase name="testListBooksWithConditionMoreThan20" classname="com.kodilla.testing.library.BookDirectoryTestSuite" time="0.004"/>
+  <testcase name="testListBooksWithConditionsReturnList" classname="com.kodilla.testing.library.BookDirectoryTestSuite" time="0.001"/>
   <testcase name="testListBooksInHandsOfFive" classname="com.kodilla.testing.library.BookDirectoryTestSuite" time="0.0"/>
   <testcase name="testListBooksInHandsOfNone" classname="com.kodilla.testing.library.BookDirectoryTestSuite" time="0.0"/>
   <testcase name="testListBooksInHandsOfOne" classname="com.kodilla.testing.library.BookDirectoryTestSuite" time="0.0"/>
