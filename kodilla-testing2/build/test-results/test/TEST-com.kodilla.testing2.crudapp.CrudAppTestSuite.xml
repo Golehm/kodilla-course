@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing2.crudapp.CrudAppTestSuite" tests="1" skipped="1" failures="0" errors="0" timestamp="2018-08-14T12:37:38" hostname="GreG-Komputer" time="0.0">
+  <properties/>
+  <testcase name="shouldCreateTrelloCard" classname="com.kodilla.testing2.crudapp.CrudAppTestSuite" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
