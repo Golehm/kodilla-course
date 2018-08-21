@@ -55,7 +55,7 @@ public class CrudAppTestSuite {
 
         driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
                 .filter(anyForm ->
-                        anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                        anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))//.
                                 .getText().equals(taskName))
                 .forEach(theForm -> {
                     WebElement selectElement = theForm.findElement(By.xpath(".//select[1]"));
@@ -81,7 +81,7 @@ public class CrudAppTestSuite {
         Thread.sleep(2000);
 
         driverTrello.findElements(By.xpath("//a[@class=\"board-title\"]")).stream()
-                .filter(aHref -> aHref.findElements(By.xpath(".//span[@title=\"Kodilla Board\"]")).size() > 0)
+                .filter(aHref -> aHref.findElements(By.xpath(".//span[@title=\"Kodilla Application\"]")).size() > 0)
                 .forEach(aHref -> aHref.click());
 
         Thread.sleep(2000);
@@ -104,6 +104,6 @@ public class CrudAppTestSuite {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
-        //deleteCrudAppTask(taskName);
+        deleteCrudAppTask(taskName);
     }
 }

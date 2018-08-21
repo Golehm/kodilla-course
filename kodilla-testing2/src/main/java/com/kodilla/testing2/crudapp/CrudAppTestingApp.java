@@ -19,7 +19,7 @@ public class CrudAppTestingApp {
 
         WebElement searchField = driver.findElement(By.xpath(XPATH_INPUT));
         searchField.sendKeys("New robotic task");
-        //searchField.submit();
+        searchField.submit();
         WebElement textareaField = driver.findElement(By.xpath(XPATH_TEXTAREA));
         textareaField.sendKeys("The robotic content");
 
