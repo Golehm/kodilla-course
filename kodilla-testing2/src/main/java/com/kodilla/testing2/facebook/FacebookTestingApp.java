@@ -10,7 +10,9 @@ public class FacebookTestingApp {
     public static void main(String[] args) {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
         driver.get("https://www.facebook.com");
+
         while (!driver.findElement(By.xpath(XPATH_WAIT_FOR)).isDisplayed());
+
         Select birthDay = new Select(driver.findElement(By.name("birthday_day")));
         birthDay.selectByVisibleText("1");
         Select birthMonth = new Select(driver.findElement(By.name("birthday_month")));
